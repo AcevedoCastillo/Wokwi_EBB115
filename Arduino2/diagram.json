@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Diego Pablo Castillo Acevedo",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 141, "left": 31.6, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno2", "top": -181.8, "left": -39, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -60.8,
+      "left": 428,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": -143.8, "left": 278.4, "attrs": {} },
+    { "type": "wokwi-serial-port", "id": "serial2", "attrs": { "baud": "9600", "port": "COM4" } }
+  ],
+  "connections": [
+    [ "uno2:5V", "bb1:tp.2", "red", [ "v95.9", "h-34.6" ] ],
+    [ "uno2:GND.2", "bb1:tn.5", "black", [ "v115.1", "h-5.7", "v38.4" ] ],
+    [ "lcd1:VCC", "bb1:tp.21", "red", [ "h-124.8", "v124.9" ] ],
+    [ "lcd1:GND", "bb1:tn.21", "black", [ "h-134.4", "v28.8" ] ],
+    [ "lcd1:SDA", "uno2:A4", "green", [ "h-96", "v57.8", "h-124.8" ] ],
+    [ "lcd1:SCL", "uno2:A5", "green", [ "h-76.8", "v57.9", "h-134.4" ] ],
+    [ "relay1:VCC", "bb1:tp.16", "red", [ "h0" ] ],
+    [ "relay1:GND", "bb1:tn.16", "black", [ "h-38.4", "v249.2" ] ],
+    [ "relay1:IN", "uno2:8", "cyan", [ "h-9.6", "v-86.6", "h-134.4" ] ],
+    [ "uno2:RX", "serial2:TX", "", [] ]
+  ],
+  "dependencies": {}
+}

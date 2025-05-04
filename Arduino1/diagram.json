@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "Diego Pablo Castillo Acevedo",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 294.6, "left": 242.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno1", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 42.4, "left": 347.82, "attrs": {} },
+    { "type": "chip-lm35", "id": "chip1", "top": 87.42, "left": 552, "attrs": {} },
+    { "type": "wokwi-serial-port", "id": "serial1", "attrs": { "baud": "9600", "port": "COM3" } }
+  ],
+  "connections": [
+    [ "uno1:5V", "bb1:tp.1", "red", [ "v77.3", "h118.4" ] ],
+    [ "uno1:GND.2", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "bb1:tp.6", "red", [ "v57.6", "h-48" ] ],
+    [ "pir1:GND", "bb1:tn.6", "black", [ "v48", "h-77.06", "v124.8" ] ],
+    [ "pir1:OUT", "uno1:3", "green", [ "v9.6", "h-86.54", "v-163.2", "h-86.4" ] ],
+    [ "chip1:VCC", "bb1:tp.11", "red", [ "h-96", "v182.4", "h-67.2" ] ],
+    [ "chip1:GND", "bb1:tn.11", "black", [ "h-76.8", "v172.8", "h-96", "v28.8" ] ],
+    [ "chip1:OUT", "uno1:A0", "green", [ "h-105.6", "v134.4", "h-240" ] ],
+    [ "uno1:TX", "serial1:RX", "", [] ]
+  ],
+  "dependencies": {}
+}
